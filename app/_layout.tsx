@@ -2,7 +2,7 @@ import { useFonts } from 'expo-font';
 import { SplashScreen } from 'expo-router';
 import { useEffect } from 'react';
 import '../global.css';
-import { View } from 'react-native';
+import { Text } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -23,7 +23,7 @@ const RootLayout = () => {
 
   if (!fontsLoaded && !error) return null;
 
-  return <View className="font-playfairRegular text-2">1234</View>;
+  return <Text className="font-playfairRegular text-2">1234</Text>;
 };
 
 export default RootLayout;
