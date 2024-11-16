@@ -34,6 +34,7 @@ module.exports = tseslint.config(
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': 'warn',
+      '@typescript-eslint/no-require-imports': 'off',
       '@typescript-eslint/no-unused-expressions': [
         'error',
         {
