@@ -1,0 +1,88 @@
+const team = [
+  {
+    id: 1,
+    img: '../assets/images/team/hamChuwon.webp',
+    name: 'Ham Chuwon',
+    description: 'Chef Extraordinaire',
+    link: '#',
+  },
+  {
+    id: 2,
+    img: '../assets/images/team/izabellaTabakova.webp',
+    name: 'Izabella Tabakova',
+    description: 'Chef Extraordinaire',
+    link: '#',
+  },
+  {
+    id: 3,
+    img: '../assets/images/team/fatimaDelgadillo.webp',
+    name: 'Fatima Delgadillo',
+    description: 'Chef Extraordinaire',
+    link: '#',
+  },
+  {
+    id: 4,
+    img: '../assets/images/team/harrisonPhillips.webp',
+    name: 'Harrison Phillips',
+    description: 'Chef Extraordinaire',
+    link: '#',
+  },
+  {
+    id: 5,
+    img: '../assets/images/team/corabelleDurrad.webp',
+    name: 'Corabelle Durrad',
+    description: 'Chef Extraordinaire',
+    link: '#',
+  },
+  {
+    id: 6,
+    img: '../assets/images/team/pabloCambeiro.webp',
+    name: 'Pablo Cambeiro',
+    description: 'Chef Extraordinaire',
+    link: '#',
+  },
+  {
+    id: 7,
+    img: '../assets/images/team/nonkosiJoyi.webp',
+    name: 'Nonkosi Joyi',
+    description: 'Chef Extraordinaire',
+    link: '#',
+  },
+  {
+    id: 8,
+    img: '../assets/images/team/wenYahui.webp',
+    name: 'Wen Yahui',
+    description: 'Chef Extraordinaire',
+    link: '#',
+  },
+  {
+    id: 9,
+    img: '../assets/images/team/jurrienOldhof.webp',
+    name: 'Jurrien Oldhof',
+    description: 'Chef Extraordinaire',
+    link: '#',
+  },
+  {
+    id: 10,
+    img: '../assets/images/team/tallahCotton.webp',
+    name: 'Tallah Cotton',
+    description: 'Chef Extraordinaire',
+    link: '#',
+  },
+  {
+    id: 11,
+    img: '../assets/images/team/qinShi.webp',
+    name: 'Qin Shi',
+    description: 'Chef Extraordinaire',
+    link: '#',
+  },
+  {
+    id: 12,
+    img: '../assets/images/team/suHua.webp',
+    name: 'Su Hua',
+    description: 'Chef Extraordinaire',
+    link: '#',
+  },
+];
+
+export default team;

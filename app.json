@@ -8,7 +8,7 @@
     "icon": "./assets/images/favicon.png",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/favicon.png",
+      "image": "./assets/images/loading.gif",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
