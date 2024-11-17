@@ -2,7 +2,7 @@ import React from 'react';
 import { View, FlatList } from 'react-native';
 import { ErrorFetch, Loading, NothingMessage, TitleSection } from '@/components/ui';
 import { useGetRecipes } from '@/api/hooks';
-import SuperDeliciousCard from '../cards/SuperDeliciousCard';
+import { SuperDeliciousCard } from '../cards';
 
 const SuperDelicious: React.FC = () => {
   const { data: recipes, isError, isLoading, message } = useGetRecipes();

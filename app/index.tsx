@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
-import { View, ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
-// import { Slider, ThroughCategories, SuperDelicious, ShareYourRecipe, LatestRecipes } from '@/components/sections';
 import { StatusBar } from 'expo-status-bar';
-import { SuperDelicious, ThroughCategories } from '@/components/sections';
+import { LatestRecipes, ShareYourRecipe, SuperDelicious, ThroughCategories } from '@/components/sections';
 
 const App: React.FC = () => {
   const navigation = useNavigation();
@@ -17,10 +16,14 @@ const App: React.FC = () => {
 
   return (
     <SafeAreaView className="bg-primary h-full">
-      <View>
-        <ThroughCategories />
-        <SuperDelicious />
-      </View>
+      <ScrollView>
+        <View>
+          <ThroughCategories />
+          <SuperDelicious />
+          <ShareYourRecipe />
+          <LatestRecipes />
+        </View>
+      </ScrollView>
       <StatusBar backgroundColor="#ffd7c9" style="light" />
     </SafeAreaView>
   );
