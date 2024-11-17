@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
 import { useFonts } from 'expo-font';
-import { SplashScreen } from 'expo-router';
-import { Text, View, FlatList } from 'react-native';
-import { useGetRecipes } from '@/api/hooks';
+import { SplashScreen, Stack } from 'expo-router';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -16,8 +14,6 @@ const RootLayout = () => {
     'Playfair-Bold': require('../assets/fonts/Playfair/playfair-display-v37-latin-700.ttf'),
   });
 
-  const { data: recipes, isLoading, isError, message } = useGetRecipes(); // Use the custom hook to get recipes
-
   useEffect(() => {
     if (error) throw error;
     if (fontsLoaded) SplashScreen.hideAsync();
@@ -25,29 +21,12 @@ const RootLayout = () => {
 
   if (!fontsLoaded || error) return null;
 
-  if (isLoading) {
-    return <Text>Loading...</Text>;
-  }
-
-  if (isError) {
-    return <Text>{message || 'Error fetching recipes'}</Text>;
-  }
-
   return (
-    <View>
-      <Text className="font-playfairRegular text-2">Recipes List</Text>
-
-      <FlatList
-        data={recipes || []}
-        renderItem={({ item }) => (
-          <View>
-            <Text>{item.title}</Text>
-            <Text>{item.shortDescription}</Text>
-          </View>
-        )}
-        keyExtractor={(item) => item.id.toString()}
-      />
-    </View>
+    <Stack>
+      <Stack.Screen name="index" options={{ headerShown: false }} />
+      {/* <Stack.Screen name='(auth)' options={{ headerShown: false }} /> */}
+      {/* <Stack.Screen name='(tabs)' options={{ headerShown: false }} /> */}
+    </Stack>
   );
 };
 
