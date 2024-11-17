@@ -13,39 +13,28 @@ const SuperDeliciousCard: React.FC<IRecipe> = ({ id, title, author, createdAt, i
   };
 
   return (
-    <TouchableOpacity
-      onPress={handlePress}
-      className="flex-col rounded-lg border border-gray-200 overflow-hidden shadow-lg"
-    >
-      <View className="w-[348px] h-[265px]">
-        <Image
-          source={{ uri: image }}
-          alt={title}
-          style={{
-            width: 100,
-            height: 100,
-          }}
-          resizeMode="cover"
-        />
+    <TouchableOpacity onPress={handlePress} className="flex-col rounded-lg border border-gray-200 shadow-lg">
+      <View className="w-full h-[220px]">
+        <Image source={{ uri: image }} className="w-full h-full" alt={title} resizeMode="cover" />
       </View>
-      <View className="bg-white p-4">
-        <View className="flex-col space-y-4">
+      <View className="bg-white px-4 py-8">
+        <View className="flex-col gap-y-2">
           <Rating />
           <Text className="text-black font-semibold text-lg">{title}</Text>
+        </View>
+        <View className="mt-4 flex-row justify-between items-center flex-wrap gap-4">
           {author && (
-            <View className="flex-row items-center space-x-2">
-              <View className="w-8 h-8 rounded-full overflow-hidden">
-                <ProfileIcon />
-              </View>
+            <View className="flex-row items-center gap-x-2">
+              <ProfileIcon />
               <Text className="text-black font-normal text-sm">
                 {author.firstName} {author.lastName}
               </Text>
             </View>
           )}
-        </View>
-        <View className="mt-4 flex-row items-center space-x-2">
-          <CalendarIcon />
-          <Text className="text-gray-500 text-xs">{formatDate(createdAt)}</Text>
+          <View className="flex-row items-center gap-x-2">
+            <CalendarIcon />
+            <Text className="text-gray-500 text-xs">{formatDate(createdAt)}</Text>
+          </View>
         </View>
       </View>
     </TouchableOpacity>

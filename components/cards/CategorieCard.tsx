@@ -14,19 +14,13 @@ const CategorieCard: React.FC<ICategorieCard> = ({ name, image }) => {
   };
 
   return (
-    <TouchableOpacity onPress={handlePress} className="flex-col items-center justify-center gap-3 w-full">
-      <View className="w-[255px] h-[255px] rounded-full overflow-hidden">
-        <Image
-          source={{ uri: image }}
-          alt={name}
-          style={{
-            width: 100,
-            height: 100,
-          }}
-          resizeMode="cover"
-        />
+    <TouchableOpacity onPress={handlePress} className="flex-col items-center justify-start px-3 w-1/3">
+      <View className="w-full aspect-square rounded-full mb-2">
+        <Image source={{ uri: image }} alt={name} className="w-full h-full" resizeMode="cover" />
       </View>
-      <Text className="font-interMedium text-lg text-black text-center">{name}</Text>
+      <Text numberOfLines={1} className="font-interBold text-[14px] text-black text-center">
+        {name}
+      </Text>
     </TouchableOpacity>
   );
 };

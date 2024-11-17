@@ -4,13 +4,13 @@ import { TitleSection } from '@/components/ui';
 
 const ShareYourRecipe: React.FC = () => {
   return (
-    <View className="bg-pink px-4 py-10">
-      <View className="flex flex-col items-center md:flex-row md:gap-10">
-        <View className="mb-6 md:mb-0">
+    <View className="bg-pink px-4 py-10 mb-16">
+      <View className="flex flex-col items-center">
+        <View className="mb-6 w-full">
           <Image
             source={require('@/assets/images/templates/shareYourRecipe.webp')}
             alt="Share your recipe"
-            style={{ width: 255, height: 255 }}
+            style={{ width: '100%', height: 'auto', aspectRatio: 1 }}
             className="rounded-lg"
           />
         </View>

@@ -20,16 +20,13 @@ const RecipesCardsList: React.FC<IRecipesCardsList> = ({ cards, isLoading, isErr
   }
 
   return (
-    <View className="mb-10">
-      <FlatList
-        data={cards}
-        keyExtractor={(item) => item.id.toString()}
-        numColumns={2}
-        columnWrapperStyle={{ gap: 24 }}
-        renderItem={({ item }) => <RecipeCard {...item} />}
-        contentContainerStyle={{ gap: 24 }}
-      />
-    </View>
+    <FlatList
+      data={cards}
+      keyExtractor={(item) => item.id.toString()}
+      numColumns={2}
+      renderItem={({ item }) => <RecipeCard {...item} />}
+      contentContainerStyle={{ gap: 20 }}
+    />
   );
 };
 

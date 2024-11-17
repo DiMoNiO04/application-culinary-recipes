@@ -8,7 +8,7 @@ const SuperDelicious: React.FC = () => {
   const { data: recipes, isError, isLoading, message } = useGetRecipes();
 
   return (
-    <View className="p-4">
+    <View className="px-4 mb-16">
       <TitleSection title="Super Delicious" />
 
       {isLoading && !isError && <Loading />}
@@ -16,12 +16,12 @@ const SuperDelicious: React.FC = () => {
 
       {!isLoading && !isError && recipes && recipes.length > 0 ? (
         <FlatList
-          data={recipes.slice(0, 6)}
+          data={recipes.slice(0, 4)}
           keyExtractor={(item) => item.id.toString()}
-          numColumns={3}
+          numColumns={1}
           renderItem={({ item }) => <SuperDeliciousCard key={item.id} {...item} />}
-          columnWrapperStyle={{ gap: 6 }}
           contentContainerStyle={{ gap: 12 }}
+          className="overflow-visible"
         />
       ) : (
         !isLoading &&

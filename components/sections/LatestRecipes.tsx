@@ -13,7 +13,7 @@ const LatestRecipes: React.FC = () => {
     : [];
 
   return (
-    <View className="px-4 py-6">
+    <View className="px-4 mb-16">
       <TitleSection title="Latest Recipes" linkTxt="View All" link={EUrls.RECIPES} />
       <RecipesCardsList cards={sortedRecipes} isLoading={isLoading} isError={isError} msg={message} />
     </View>

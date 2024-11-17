@@ -2,7 +2,7 @@ import React from 'react';
 import { Svg, Path } from 'react-native-svg';
 import { IIcon } from '.';
 
-const ProfileIcon: React.FC<IIcon> = ({ color = '#000000', className }) => {
+const ProfileIcon: React.FC<IIcon> = ({ color = '#000000' }) => {
   return (
     <Svg width="25" height="24" viewBox="0 0 25 24" fill="none">
       <Path

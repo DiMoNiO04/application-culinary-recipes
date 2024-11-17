@@ -9,7 +9,7 @@ const ThroughCategories: React.FC = () => {
   const { data: categories, isLoading, isError } = useGetCategories();
 
   return (
-    <View className="p-4">
+    <View className="px-4 mb-16">
       <TitleSection title="Categories" linkTxt="View All" link={EUrls.CATEGORIES} />
 
       {isLoading && !isError && <Loading />}
@@ -21,8 +21,7 @@ const ThroughCategories: React.FC = () => {
           keyExtractor={(item) => item.id.toString()}
           numColumns={3}
           renderItem={({ item }) => <CategorieCard key={item.id} name={item.name} image={item.image} />}
-          columnWrapperStyle={{ gap: 4 }}
-          contentContainerStyle={{ gap: 6 }}
+          contentContainerStyle={{ gap: 20 }}
         />
       ) : (
         !isLoading &&

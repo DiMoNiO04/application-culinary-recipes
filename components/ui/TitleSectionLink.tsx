@@ -16,7 +16,7 @@ const TitleLinkSection: React.FC<ITitleLinkSection> = ({ link, linkTxt }) => {
 
   return (
     <TouchableOpacity onPress={handlePress}>
-      <Text className="text-black text-lg font-interRegular italic border-b border-black">{linkTxt}</Text>
+      <Text className="text-black text-[14px] font-interRegular italic border-b border-black">{linkTxt}</Text>
     </TouchableOpacity>
   );
 };

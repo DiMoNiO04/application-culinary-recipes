@@ -10,8 +10,8 @@ interface ITitleSection {
 
 const TitleSection: React.FC<ITitleSection> = ({ title, link, linkTxt }) => {
   return (
-    <View className="flex-row justify-between items-center mb-10">
-      <Text className="font-playfairBold text-3xl text-black">{title}</Text>
+    <View className="flex-row justify-between items-center mb-6">
+      <Text className="font-playfairBold text-[30px] text-black">{title}</Text>
       <TitleLinkSection link={link} linkTxt={linkTxt} />
     </View>
   );

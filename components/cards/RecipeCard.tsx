@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { useFavorites, useGetFavorites } from '@/api/hooks';
-import { EButtonType, EFavoriteActionType, EUrls } from '@/utils';
+import { EFavoriteActionType, EUrls } from '@/utils';
 import { LikeIcon } from '@/components/icons';
 import ERoles from '@/utils/enums/roles';
 import { router, RelativePathString } from 'expo-router';
@@ -40,7 +40,7 @@ const RecipeCard: React.FC<IRecipeCard> = ({ title, image, id }) => {
   };
 
   return (
-    <TouchableOpacity onPress={handlePress} className="relative flex-col items-center justify-center gap-2 w-full">
+    <TouchableOpacity onPress={handlePress} className="flex-col items-center justify-start px-2 w-1/2 relative">
       {token && role === ERoles.USER && (
         <TouchableOpacity
           onPress={handleLikeClick}
@@ -49,19 +49,10 @@ const RecipeCard: React.FC<IRecipeCard> = ({ title, image, id }) => {
           <LikeIcon color={isLiked ? '#ff642f' : '#8B8D95'} />
         </TouchableOpacity>
       )}
-      <View className="w-[350px] h-[265px] rounded-lg overflow-hidden mb-2">
-        <Image
-          source={{ uri: image }}
-          alt={title}
-          style={{
-            width: 100,
-            height: 100,
-            borderRadius: 6,
-          }}
-          resizeMode="cover"
-        />
+      <View className="w-full aspect-square mb-2">
+        <Image source={{ uri: image }} alt={title} className="w-full h-full" resizeMode="cover" />
       </View>
-      <Text className="font-interMedium text-lg text-black text-center">{title}</Text>
+      <Text className="font-interBold text-[14px] text-black text-center leading-5">{title}</Text>
     </TouchableOpacity>
   );
 };
