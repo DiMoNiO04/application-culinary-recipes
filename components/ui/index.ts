@@ -4,3 +4,4 @@ export { default as NothingMessage } from './NothingMessage';
 export { default as TitleSection } from './TitleSection';
 export { default as TitleLinkSection } from './TitleSectionLink';
 export { default as Socials } from './Socials';
+export { default as Select } from './Select';

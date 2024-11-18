@@ -8,3 +8,4 @@ export { default as SimpleRecipes } from './SimpleRecipes';
 export { default as Operating } from './Operating';
 export { default as TalentTeam } from './TalentTeam';
 export { default as CategoriesContent } from './CategoriesContent';
+export { default as RecipesContent } from './RecipesContent';

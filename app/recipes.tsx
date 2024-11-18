@@ -3,15 +3,15 @@ import { FlatList, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { CategoriesContent } from '@/components/sections';
+import { RecipesContent } from '@/components/sections';
 import { Footer } from '@/components/layouts';
 
-const CategoriesPage: React.FC = () => {
+const RecipesPage: React.FC = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
     navigation.setOptions({
-      title: 'Categories',
+      title: 'Recipes',
     });
   }, [navigation]);
 
@@ -21,7 +21,7 @@ const CategoriesPage: React.FC = () => {
         data={[1]}
         renderItem={() => (
           <View>
-            <CategoriesContent />
+            <RecipesContent />
           </View>
         )}
         keyExtractor={(item) => item.toString()}
@@ -33,4 +33,4 @@ const CategoriesPage: React.FC = () => {
   );
 };
 
-export default CategoriesPage;
+export default RecipesPage;
