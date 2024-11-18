@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { LatestRecipes, ShareYourRecipe, Slider, SuperDelicious, ThroughCategories } from '@/components/sections';
+import { Footer } from '@/components/layouts';
 
 const App: React.FC = () => {
   const navigation = useNavigation();
@@ -23,6 +24,7 @@ const App: React.FC = () => {
           <SuperDelicious />
           <ShareYourRecipe />
           <LatestRecipes />
+          <Footer />
         </View>
       </ScrollView>
       <StatusBar backgroundColor="#ffd7c9" style="light" />
