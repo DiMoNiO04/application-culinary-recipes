@@ -9,3 +9,4 @@ export { default as Operating } from './Operating';
 export { default as TalentTeam } from './TalentTeam';
 export { default as CategoriesContent } from './CategoriesContent';
 export { default as RecipesContent } from './RecipesContent';
+export { default as CategoryTemplate } from './CategoryTemplate';

@@ -24,10 +24,19 @@ const RootLayout = () => {
 
   return (
     <Stack>
+      {/* Default screen */}
       <Stack.Screen name="index" options={{ headerShown: false }} />
       <Stack.Screen name="about" options={{ headerShown: false }} />
-      <Stack.Screen name="categories" options={{ headerShown: false }} />
+      <Stack.Screen
+        name="categories/index"
+        options={{ headerShown: false }} // скрываем заголовок для categories
+      />
       <Stack.Screen name="recipes" options={{ headerShown: false }} />
+      {/* Dynamic category screen */}
+      <Stack.Screen
+        name="categories/[category]"
+        options={{ headerShown: false }} // скрываем заголовок для динамических категорий
+      />
     </Stack>
   );
 };

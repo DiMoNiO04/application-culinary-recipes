@@ -39,7 +39,7 @@ const Select: React.FC<ISelect> = ({ label, value, onChange, options }) => {
 
   return (
     <View className="relative w-60 z-10">
-      {label && <Text className="mb-2 text-sm text-gray-700">{label}</Text>}
+      {label && <Text className="mb-2 text-sm font-interMedium text-gray-700">{label}</Text>}
       <TouchableOpacity
         className="border border-gray-400 rounded px-3 py-2 flex-row justify-between items-center"
         onPress={handleToggle}
@@ -53,7 +53,7 @@ const Select: React.FC<ISelect> = ({ label, value, onChange, options }) => {
       {isOpen && (
         <View
           style={{ maxHeight: 700 }}
-          className="absolute top-12 w-full bg-white border border-gray-300 rounded shadow-lg"
+          className={`absolute ${label ? 'top-20' : 'top-12'} w-full bg-white border border-gray-300 rounded shadow-lg`}
         >
           <FlatList
             data={options}
