@@ -1,13 +1,15 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Linking } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { LogoIcon } from '@/components/icons';
 import { Socials } from '@/components/ui';
 import { EUrls } from '@/utils';
+import { RelativePathString, router } from 'expo-router';
 
 const links = [
-  { text: 'About us', href: EUrls.ABOUT },
-  { text: 'Categories', href: 'categories' },
-  { text: 'Recipes', href: 'recipes' },
+  { text: 'Home', href: '/' },
+  { text: 'About us', href: '/about' },
+  { text: 'Categories', href: EUrls.CATEGORIES },
+  { text: 'Recipes', href: '/recipes' },
 ];
 
 const Footer: React.FC = () => {
@@ -24,8 +26,10 @@ const Footer: React.FC = () => {
 
         <View className="flex flex-row justify-between">
           {links.map(({ text, href }) => (
-            <TouchableOpacity key={text} onPress={() => Linking.openURL(href)} className="py-1">
-              <Text className="text-gray-600 hover:text-black text-sm">{text}</Text>
+            <TouchableOpacity key={text}>
+              <Text onPress={() => router.push(href as RelativePathString)} className="text-gray text-lg">
+                {text}
+              </Text>
             </TouchableOpacity>
           ))}
         </View>

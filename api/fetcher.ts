@@ -1,16 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { EFetchErrors, EStatusCode, TOKEN_KEY } from '../utils';
+import { EFetchErrors, EStatusCode } from '../utils';
 
-export const fetcher = async <T>(url: string, mockData?: T): Promise<T | null> => {
+export const fetcher = async <T>(url: string, token?: string, mockData?: T): Promise<T | null> => {
   if (!(url && !url.includes('undefined'))) return null;
 
   try {
-    const headers: Record<string, string> = {
-      'Content-Type': 'application/json',
-    };
+    const headers: Record<string, string> = { 'Content-Type': 'application/json' };
 
-    const token = await AsyncStorage.getItem(TOKEN_KEY);
     if (token) {
       headers.Authorization = `Bearer ${token}`;
     }

@@ -13,10 +13,8 @@ const TalentTeam: React.FC = () => {
         data={team}
         keyExtractor={(item) => item.id.toString()}
         numColumns={2}
-        renderItem={({ item }) => <TeamCard {...item} />}
-        contentContainerStyle={{
-          gap: 20,
-        }}
+        renderItem={({ item }) => <TeamCard name={item.name} description={item.description} img={item.img} />}
+        className="gap-4"
       />
     </View>
   );

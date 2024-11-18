@@ -9,5 +9,6 @@ export { default as useRoles } from './useRoles';
 export { default as useTogglePublishRecipe } from './useTogglePublishRecipe';
 export { default as useAssignRole } from './useAssignRole';
 export { default as useBanUser } from './useBanUser';
+export { default as useFetchDataToken } from './useFetchDataWithToken';
 export * from './useGetDatas';
 export type { IAuthResponse, IErrorResponse, IAuthCallbacks } from '../interfaces';

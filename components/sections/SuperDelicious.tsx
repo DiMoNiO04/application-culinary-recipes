@@ -20,8 +20,7 @@ const SuperDelicious: React.FC = () => {
           keyExtractor={(item) => item.id.toString()}
           numColumns={1}
           renderItem={({ item }) => <SuperDeliciousCard key={item.id} {...item} />}
-          contentContainerStyle={{ gap: 12 }}
-          className="overflow-visible"
+          className="overflow-visible gap-4"
         />
       ) : (
         !isLoading &&

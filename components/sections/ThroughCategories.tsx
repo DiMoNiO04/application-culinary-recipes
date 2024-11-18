@@ -21,7 +21,7 @@ const ThroughCategories: React.FC = () => {
           keyExtractor={(item) => item.id.toString()}
           numColumns={3}
           renderItem={({ item }) => <CategorieCard key={item.id} name={item.name} image={item.image} />}
-          contentContainerStyle={{ gap: 20 }}
+          className="gap-4"
         />
       ) : (
         !isLoading &&

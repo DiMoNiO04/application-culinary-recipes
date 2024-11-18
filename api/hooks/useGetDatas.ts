@@ -1,6 +1,7 @@
 import { ApiEndpoints } from '@/utils';
 import useFetchData from './useFetchData';
 import { ICategory, IRecipe, IRole, IUser } from '../interfaces';
+import useFetchDataToken from './useFetchDataWithToken';
 
 export const useGetCategories = () => useFetchData<ICategory[]>(ApiEndpoints.GET_CATEGORIES);
 export const useGetCategory = (name: string | undefined) =>
@@ -12,10 +13,10 @@ export const useGetAllRecipes = () => useFetchData<IRecipe[]>(`${ApiEndpoints.GE
 export const useSearch = (name: string) => useFetchData<IRecipe[]>(`${ApiEndpoints.SEARCH}?title=${name}`);
 export const useGetRecipe = (id: number | undefined) => useFetchData<IRecipe>(`${ApiEndpoints.GET_RECIPE}${id}`);
 
-export const useGetFavorites = () => useFetchData<IRecipe[]>(ApiEndpoints.GET_FAVORITES);
-export const useGetUserInfo = () => useFetchData<IUser>(ApiEndpoints.GET_PERSONAL_DATA);
-export const useGetMyRecipes = () => useFetchData<IRecipe[]>(ApiEndpoints.GET_MY_RECIPES);
+export const useGetFavorites = () => useFetchDataToken<IRecipe[]>(ApiEndpoints.GET_FAVORITES);
+export const useGetUserInfo = () => useFetchDataToken<IUser>(ApiEndpoints.GET_PERSONAL_DATA);
+export const useGetMyRecipes = () => useFetchDataToken<IRecipe[]>(ApiEndpoints.GET_MY_RECIPES);
 export const useGetRole = (value: string | undefined) =>
-  useFetchData<IRole>(`${ApiEndpoints.GET_ROLE}${value?.toUpperCase()}`);
-export const useGetRoles = () => useFetchData<IRole[]>(`${ApiEndpoints.GET_ROLES}`);
-export const useGetUsers = () => useFetchData<IUser[]>(`${ApiEndpoints.GET_USERS}`);
+  useFetchDataToken<IRole>(`${ApiEndpoints.GET_ROLE}${value?.toUpperCase()}`);
+export const useGetRoles = () => useFetchDataToken<IRole[]>(`${ApiEndpoints.GET_ROLES}`);
+export const useGetUsers = () => useFetchDataToken<IUser[]>(`${ApiEndpoints.GET_USERS}`);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList } from 'react-native';
 import { NothingMessage, Loading, ErrorFetch } from '@/components/ui';
 import { IRecipe } from '@/api';
 import { RecipeCard } from '../cards';
@@ -25,7 +25,7 @@ const RecipesCardsList: React.FC<IRecipesCardsList> = ({ cards, isLoading, isErr
       keyExtractor={(item) => item.id.toString()}
       numColumns={2}
       renderItem={({ item }) => <RecipeCard {...item} />}
-      contentContainerStyle={{ gap: 20 }}
+      className="gap-4"
     />
   );
 };

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ScrollView, View } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
@@ -16,17 +16,22 @@ const App: React.FC = () => {
   }, [navigation]);
 
   return (
-    <SafeAreaView className="bg- h-full">
-      <ScrollView>
-        <View>
-          <Slider />
-          <ThroughCategories />
-          <SuperDelicious />
-          <ShareYourRecipe />
-          <LatestRecipes />
-          <Footer />
-        </View>
-      </ScrollView>
+    <SafeAreaView className="bg-primary h-full">
+      <FlatList
+        data={[1]}
+        renderItem={() => (
+          <View>
+            <Slider />
+            <ThroughCategories />
+            <SuperDelicious />
+            <ShareYourRecipe />
+            <LatestRecipes />
+          </View>
+        )}
+        keyExtractor={(item) => item.toString()}
+        showsVerticalScrollIndicator={false}
+        ListFooterComponent={<Footer />}
+      />
       <StatusBar backgroundColor="#ffd7c9" style="light" />
     </SafeAreaView>
   );
