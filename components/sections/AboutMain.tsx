@@ -5,7 +5,7 @@ import { TitleSection } from '../ui';
 const AboutMain: React.FC = () => {
   return (
     <View className="mt-40 px-4 mb-16">
-      <Text className="text-4xl font-playfairBold text-black pb-2 border-b border-gray-300 mb-4">About</Text>
+      <Text className="font-playfairBold text-black text-5xl pb-7 border-b border-greyLight mb-16">About us</Text>
 
       <View className="flex flex-col gap-4">
         <TitleSection title="We’re a group of foodies who love cooking and the internet" />
