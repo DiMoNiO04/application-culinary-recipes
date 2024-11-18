@@ -3,3 +3,7 @@ export { default as SuperDelicious } from './SuperDelicious';
 export { default as ShareYourRecipe } from './ShareYourRecipe';
 export { default as LatestRecipes } from './LatestRecipes';
 export { default as Slider } from './Slider';
+export { default as AboutMain } from './AboutMain';
+export { default as SimpleRecipes } from './SimpleRecipes';
+export { default as Operating } from './Operating';
+export { default as TalentTeam } from './TalentTeam';

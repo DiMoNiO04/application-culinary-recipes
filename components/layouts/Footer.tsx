@@ -2,9 +2,10 @@ import React from 'react';
 import { View, Text, TouchableOpacity, Linking } from 'react-native';
 import { LogoIcon } from '@/components/icons';
 import { Socials } from '@/components/ui';
+import { EUrls } from '@/utils';
 
 const links = [
-  { text: 'About us', href: 'about' },
+  { text: 'About us', href: EUrls.ABOUT },
   { text: 'Categories', href: 'categories' },
   { text: 'Recipes', href: 'recipes' },
 ];

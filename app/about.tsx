@@ -3,10 +3,10 @@ import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { LatestRecipes, ShareYourRecipe, Slider, SuperDelicious, ThroughCategories } from '@/components/sections';
+import { AboutMain, Operating, SimpleRecipes, TalentTeam } from '@/components/sections';
 import { Footer } from '@/components/layouts';
 
-const App: React.FC = () => {
+const AboutPage: React.FC = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -16,14 +16,13 @@ const App: React.FC = () => {
   }, [navigation]);
 
   return (
-    <SafeAreaView className="bg- h-full">
+    <SafeAreaView className="bg-white h-full">
       <ScrollView>
         <View>
-          <Slider />
-          <ThroughCategories />
-          <SuperDelicious />
-          <ShareYourRecipe />
-          <LatestRecipes />
+          <AboutMain />
+          <SimpleRecipes />
+          <TalentTeam />
+          <Operating />
           <Footer />
         </View>
       </ScrollView>
@@ -32,4 +31,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default AboutPage;
