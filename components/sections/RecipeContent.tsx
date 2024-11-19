@@ -17,7 +17,7 @@ const RecipeContent: React.FC<IRecipeContent> = ({ recipe, isError, isLoading })
   if (isLoading) return <Loading />;
 
   return (
-    <View className="mt-40 mb-16">
+    <View className="my-16">
       {recipe && recipe.isPublished ? (
         <>
           <RecipeTop

@@ -3,9 +3,10 @@ import { View, Text, TouchableOpacity, Image, FlatList } from 'react-native';
 import { RelativePathString, useRouter } from 'expo-router';
 import { ConfirmAction } from '../modals';
 import { useAuthToken, useLogout } from '@/hooks';
-import { EUrls, SUCCESS_AUTH } from '@/utils';
+import { EButtonClass, EButtonSize, EUrls, SUCCESS_AUTH } from '@/utils';
 import ERoles from '@/utils/enums/roles';
 import NotificationMsg from '../ui/NotificationMsg';
+import Button from '../ui/Button'; // Импортируем компонент Button
 
 const UserProfile: React.FC = () => {
   const { token, role } = useAuthToken();
@@ -70,7 +71,7 @@ const UserProfile: React.FC = () => {
   };
 
   return (
-    <View className="flex-1 justify-center items-center bg-gray-100">
+    <View className="justify-center items-center">
       {notification.isOpen && (
         <NotificationMsg
           isSuccess={notification.isSuccess}
@@ -92,12 +93,7 @@ const UserProfile: React.FC = () => {
           />
         </View>
       ) : (
-        <TouchableOpacity
-          className="bg-blue-500 px-6 py-2 rounded-lg"
-          onPress={() => router.push(EUrls.LOGIN as unknown as RelativePathString)}
-        >
-          <Text className="text-white font-bold">Login</Text>
-        </TouchableOpacity>
+        <Button text="Login" nameClass={EButtonClass.DEF} size={EButtonSize.SM} isLink={true} linkUrl={EUrls.LOGIN} />
       )}
 
       <ConfirmAction

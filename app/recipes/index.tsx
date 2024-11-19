@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { RecipesContent } from '@/components/sections';
-import { Footer } from '@/components/layouts';
+import { Footer, Header } from '@/components/layouts';
 
 const RecipesPage: React.FC = () => {
   const navigation = useNavigation();
@@ -17,6 +17,7 @@ const RecipesPage: React.FC = () => {
 
   return (
     <SafeAreaView className="bg-white h-full">
+      <Header />
       <FlatList
         data={[1]}
         renderItem={() => (

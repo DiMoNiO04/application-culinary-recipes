@@ -24,7 +24,7 @@ const CategoryTemplate: React.FC<ICategoryTemplate> = ({ category, isError, isLo
   const { sortOption, handleSortChange, sortedRecipes } = useSortRecipes(recipes || []);
 
   return (
-    <View className="mt-40 mb-16">
+    <View className="mb-16">
       <View className="container">
         <View className="w-full mb-12">
           <Image

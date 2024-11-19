@@ -16,12 +16,12 @@ const App: React.FC = () => {
   }, [navigation]);
 
   return (
-    <SafeAreaView className="bg-primary h-full">
+    <SafeAreaView className="bg-white h-full">
+      <Header />
       <FlatList
         data={[1]}
         renderItem={() => (
           <View>
-            <Header />
             <Slider />
             <ThroughCategories />
             <SuperDelicious />

@@ -8,7 +8,7 @@ const CategoriesContent: React.FC = () => {
   const { data: categories, isLoading, isError } = useGetCategories();
 
   return (
-    <View className="mt-40 mb-16">
+    <View className="my-16">
       <View className="container px-4">
         <Text className="font-playfairBold text-black text-5xl pb-7 border-b border-greyLight mb-16">Categories</Text>
 

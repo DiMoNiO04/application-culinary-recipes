@@ -4,7 +4,7 @@ import { TitleSection } from '../ui';
 
 const AboutMain: React.FC = () => {
   return (
-    <View className="mt-40 px-4 mb-16">
+    <View className="my-16 px-4">
       <Text className="font-playfairBold text-black text-5xl pb-7 border-b border-greyLight mb-16">About us</Text>
 
       <View className="flex flex-col gap-4">

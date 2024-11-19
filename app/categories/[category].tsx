@@ -3,7 +3,7 @@ import { FlatList, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { Footer } from '@/components/layouts';
+import { Footer, Header } from '@/components/layouts';
 import CategoryTemplate from '@/components/sections/CategoryTemplate';
 import { useLocalSearchParams } from 'expo-router';
 import { useGetCategory } from '@/api/hooks';
@@ -30,10 +30,10 @@ const CategoryPage: React.FC = () => {
   }, [navigation, category]);
 
   if (isDelayed) return null;
-  // if (!categoryData && !isLoading) return <NotFoundPage />;
 
   return (
     <SafeAreaView className="bg-white h-full">
+      <Header />
       <FlatList
         data={[1]}
         renderItem={() => (

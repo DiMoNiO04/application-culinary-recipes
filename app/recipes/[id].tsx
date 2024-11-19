@@ -3,7 +3,7 @@ import { FlatList, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { Footer } from '@/components/layouts';
+import { Footer, Header } from '@/components/layouts';
 import { useLocalSearchParams } from 'expo-router';
 import { useGetRecipe } from '@/api/hooks';
 import { AlsoLike, RecipeContent } from '@/components/sections';
@@ -34,6 +34,7 @@ const RecipePage: React.FC = () => {
 
   return (
     <SafeAreaView className="bg-white h-full">
+      <Header />
       <FlatList
         data={[1]}
         renderItem={() => (

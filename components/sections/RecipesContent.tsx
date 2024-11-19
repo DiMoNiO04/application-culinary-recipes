@@ -53,7 +53,7 @@ const RecipesContent: React.FC = () => {
   );
 
   return (
-    <View className="mt-40 px-4 mb-16">
+    <View className="px-4 my-16">
       <Text className="font-playfairBold text-black text-5xl pb-7 border-b border-greyLight mb-16">Recipes</Text>
 
       {isError && <ErrorFetch />}

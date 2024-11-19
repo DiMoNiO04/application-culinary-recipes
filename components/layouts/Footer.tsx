@@ -14,7 +14,7 @@ const links = [
 
 const Footer: React.FC = () => {
   return (
-    <View className="bg-greyLight px-4 py-8">
+    <View className="bg-whiteDark px-4 py-8">
       <View className="flex flex-col gap-y-6 border-b border-gray-300 pb-6">
         <View className="flex flex-row gap-x-4 items-start">
           <LogoIcon className="w-32 h-10" />
