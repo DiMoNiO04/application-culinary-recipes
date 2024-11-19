@@ -13,14 +13,14 @@ const MenuHeader: React.FC = () => {
   ];
 
   return (
-    <View className="flex-row justify-center space-x-12 border-b border-gray-300 pb-6">
+    <View className="flex-col items-start w-full gap-y-6 border-b border-gray-300 pb-8 mb-12">
       {menuItems.map((item) => (
         <TouchableOpacity
           key={item.title}
           onPress={() => router.push(item.url as unknown as RelativePathString)}
           className="relative"
         >
-          <Text className="text-base text-black">{item.title}</Text>
+          <Text className="font-interMedium text-lg">{item.title}</Text>
         </TouchableOpacity>
       ))}
     </View>
