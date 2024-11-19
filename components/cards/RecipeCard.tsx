@@ -36,7 +36,7 @@ const RecipeCard: React.FC<IRecipeCard> = ({ title, image, id }) => {
   };
 
   const handlePress = () => {
-    router.push(`${EUrls.RECIPE}/${id}/` as RelativePathString);
+    router.push(`${EUrls.RECIPES}/${id}/` as RelativePathString);
   };
 
   return (

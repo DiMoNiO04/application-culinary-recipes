@@ -10,3 +10,6 @@ export { default as TalentTeam } from './TalentTeam';
 export { default as CategoriesContent } from './CategoriesContent';
 export { default as RecipesContent } from './RecipesContent';
 export { default as CategoryTemplate } from './CategoryTemplate';
+export { default as AlsoLike } from './AlsoLike';
+export { default as RecipeTop } from './RecipeTop';
+export { default as RecipeContent } from './RecipeContent';

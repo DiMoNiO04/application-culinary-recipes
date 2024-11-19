@@ -6,7 +6,7 @@ import useFetchDataToken from './useFetchDataWithToken';
 export const useGetCategories = () => useFetchData<ICategory[]>(ApiEndpoints.GET_CATEGORIES);
 export const useGetCategory = (name: string | undefined) =>
   useFetchData<ICategory>(`${ApiEndpoints.GET_CATEGORY}${name}`);
-export const useGetCategoryRecipes = (name: string) =>
+export const useGetCategoryRecipes = (name: string | undefined) =>
   useFetchData<IRecipe[]>(`${ApiEndpoints.GET_CATEGORY_RECIPES}${name}`);
 export const useGetRecipes = () => useFetchData<IRecipe[]>(`${ApiEndpoints.GET_RECIPES}`);
 export const useGetAllRecipes = () => useFetchData<IRecipe[]>(`${ApiEndpoints.GET_ALL_RECIPES}`);
