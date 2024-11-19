@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { LatestRecipes, ShareYourRecipe, Slider, SuperDelicious, ThroughCategories } from '@/components/sections';
 import { Footer } from '@/components/layouts';
+import { UserProfile } from '@/components/elements';
 
 const App: React.FC = () => {
   const navigation = useNavigation();
@@ -22,6 +23,7 @@ const App: React.FC = () => {
         renderItem={() => (
           <View>
             <Slider />
+            <UserProfile />
             <ThroughCategories />
             <SuperDelicious />
             <ShareYourRecipe />
