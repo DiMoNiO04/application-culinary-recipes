@@ -1,5 +1,6 @@
 export enum EUrls {
   MAIN = '/',
+  LOGIN = '/login',
   ABOUT = '/about/',
   CATEGORIES = '/categories',
   FAVORITES = '/favorites/',
