@@ -13,3 +13,4 @@ export { default as CategoryTemplate } from './CategoryTemplate';
 export { default as AlsoLike } from './AlsoLike';
 export { default as RecipeTop } from './RecipeTop';
 export { default as RecipeContent } from './RecipeContent';
+export { default as NotFound } from './NotFound';

@@ -30,6 +30,7 @@ const RootLayout = () => {
       <Stack.Screen name="recipes/index" options={{ headerShown: false }} />
       <Stack.Screen name="categories/[category]" options={{ headerShown: false }} />
       <Stack.Screen name="recipes/[id]" options={{ headerShown: false }} />
+      <Stack.Screen name="_404" options={{ headerShown: false }} />
     </Stack>
   );
 };

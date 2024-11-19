@@ -9,7 +9,7 @@ import { CalendarIcon, ProfileIcon } from '../icons';
 
 const SuperDeliciousCard: React.FC<IRecipe> = ({ id, title, author, createdAt, image }) => {
   const handlePress = () => {
-    router.push(`${EUrls.RECIPES}/${id}/` as RelativePathString);
+    router.push(`${EUrls.RECIPE}/${id}/` as RelativePathString);
   };
 
   return (
