@@ -6,3 +6,4 @@ export { default as InfoRecipe } from './InfoRecipe';
 export { default as UserProfile } from './UserProfile';
 export { default as MenuHeader } from './MenuHeader';
 export { default as BurgerBtn } from './BurgerBtn';
+export { default as AuthRedirectLink } from './AuthRedirectLink';

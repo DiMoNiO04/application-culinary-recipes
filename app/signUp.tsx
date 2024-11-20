@@ -4,22 +4,22 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { Footer, Header } from '@/components/layouts';
-import { LoginForm } from '@/components/forms';
+import { SignUpForm } from '@/components/forms';
 import { EUrls } from '@/utils';
 import { router } from 'expo-router';
 import { AuthRedirectLink } from '@/components/elements';
 
-const LoginPage: React.FC = () => {
+const SignUpPage: React.FC = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
     navigation.setOptions({
-      title: 'Login',
+      title: 'Registration',
     });
   }, [navigation]);
 
-  const goToRegister = () => {
-    router.push(EUrls.REGISTER);
+  const goToLogin = () => {
+    router.push(EUrls.LOGIN);
   };
 
   return (
@@ -29,10 +29,10 @@ const LoginPage: React.FC = () => {
         data={[1]}
         renderItem={() => (
           <View className="my-16 px-4">
-            <Text className="font-playfairBold text-black text-5xl pb-7 border-b border-greyLight mb-16">Login</Text>
-            <LoginForm />
+            <Text className="font-playfairBold text-black text-5xl pb-7 border-b border-greyLight mb-16">Sign Up</Text>
+            <SignUpForm />
             <View className="mt-4">
-              <AuthRedirectLink message="Don't have an account?" linkText="Sign Up" onPress={goToRegister} />
+              <AuthRedirectLink message="Already have an account?" linkText="Login" onPress={goToLogin} />
             </View>
           </View>
         )}
@@ -45,4 +45,4 @@ const LoginPage: React.FC = () => {
   );
 };
 
-export default LoginPage;
+export default SignUpPage;
