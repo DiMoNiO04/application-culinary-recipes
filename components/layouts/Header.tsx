@@ -5,6 +5,7 @@ import { MenuHeader, UserProfile, BurgerBtn } from '@/components/elements';
 import { Socials } from '@/components/ui';
 import { useHeader } from '@/hooks';
 import SearchPanel from './SearchPanel';
+import { router } from 'expo-router';
 
 const Header: React.FC = () => {
   const { isScrolled, isOpenBurger, handleBurgerToggle } = useHeader();
@@ -15,7 +16,7 @@ const Header: React.FC = () => {
   return (
     <View className={`top-0 left-0 w-full z-10 bg-whiteDark ${isScrolled || (isOpenBurger && 'bg-white')}`}>
       <View className="flex flex-row justify-between items-center px-4 py-3">
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => router.push('/')}>
           <LogoIcon />
         </TouchableOpacity>
 
