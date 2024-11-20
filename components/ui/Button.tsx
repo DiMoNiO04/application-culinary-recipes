@@ -49,7 +49,10 @@ const Button: React.FC<IButtonProps> = ({
 
   return (
     <TouchableOpacity className={buttonClasses} onPress={handlePress} disabled={isDisabled}>
-      <Text style={{ color: `${EButtonClass.DEF === nameClass ? 'black' : 'white'}` }} className="font-interMedium">
+      <Text
+        style={{ color: `${EButtonClass.DEF === nameClass ? 'black' : 'white'}`, textAlign: 'center' }}
+        className="font-interMedium"
+      >
         {text}
       </Text>
     </TouchableOpacity>
