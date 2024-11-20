@@ -1,40 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, Image, FlatList } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, FlatList, Alert } from 'react-native';
 import { RelativePathString, useRouter } from 'expo-router';
 import { ConfirmAction } from '../modals';
 import { useAuthToken, useLogout } from '@/hooks';
-import { EButtonClass, EButtonSize, EUrls, SUCCESS_AUTH } from '@/utils';
+import { EButtonClass, EButtonSize, EUrls } from '@/utils';
 import ERoles from '@/utils/enums/roles';
-import NotificationMsg from '../ui/NotificationMsg';
-import Button from '../ui/Button'; // Импортируем компонент Button
+import Button from '../ui/Button';
+import { ProfileIcon } from '../icons';
 
 const UserProfile: React.FC = () => {
-  const { token, role } = useAuthToken();
+  const { role } = useAuthToken();
   const { isAuth, handleLogout } = useLogout();
   const router = useRouter();
 
   const [isLogoutModalOpen, setLogoutModalOpen] = useState(false);
-  const [notification, setNotification] = useState<{ isOpen: boolean; isSuccess: boolean; message: string }>({
-    isOpen: false,
-    isSuccess: false,
-    message: '',
-  });
-
-  useEffect(() => {
-    if (token && isAuth) {
-      setNotification({ isOpen: true, isSuccess: true, message: SUCCESS_AUTH });
-    }
-  }, [token, isAuth]);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleLogoutModal = () => setLogoutModalOpen((prev) => !prev);
 
   const handleLogOut = async () => {
     try {
       const message = await handleLogout();
-      setNotification({ isOpen: true, isSuccess: false, message });
+      Alert.alert('Logged out', message);
     } catch (error) {
       console.error('Logout failed:', error);
-      setNotification({ isOpen: true, isSuccess: false, message: 'An error occurred during logout.' });
+      Alert.alert('Error', 'An error occurred during logout.');
     } finally {
       setLogoutModalOpen(false);
     }
@@ -62,8 +52,8 @@ const UserProfile: React.FC = () => {
   const renderLink = ({ item }: { item: { title: string; url?: string; action?: () => void } }) => {
     return (
       <TouchableOpacity
-        className="py-2 px-4 border-b border-gray-300"
-        onPress={item.action ? item.action : () => router.push(item.url! as RelativePathString)}
+        className="py-2 px-5 border-b border-gray-300"
+        onPress={item.action ? item.action : () => router.push(item.url as RelativePathString)}
       >
         <Text className="text-black">{item.title}</Text>
       </TouchableOpacity>
@@ -72,25 +62,23 @@ const UserProfile: React.FC = () => {
 
   return (
     <View className="justify-center items-center">
-      {notification.isOpen && (
-        <NotificationMsg
-          isSuccess={notification.isSuccess}
-          msg={notification.message}
-          onClose={() => setNotification({ isOpen: false, isSuccess: false, message: '' })}
-        />
-      )}
-
       {isAuth ? (
-        <View className="w-full items-center">
-          <TouchableOpacity className="p-2">
-            <Image source={{ uri: '/icons/profile.svg' }} style={{ width: 50, height: 50 }} className="rounded-full" />
+        <View className="relative">
+          <TouchableOpacity
+            onPress={() => setIsDropdownOpen((prev) => !prev)}
+            className="w-8 h-8 justify-center items-center"
+          >
+            <ProfileIcon />
           </TouchableOpacity>
-          <FlatList
-            data={renderProfileLinks()}
-            renderItem={renderLink}
-            keyExtractor={(item) => item.title}
-            style={{ width: '80%', marginTop: 10 }}
-          />
+
+          {isDropdownOpen && (
+            <FlatList
+              data={renderProfileLinks()}
+              renderItem={renderLink}
+              keyExtractor={(item) => item.title}
+              className="w-52 absolute top-12 right-0 bg-white border border-gray-300 rounded-lg shadow-lg p-2 z-10"
+            />
+          )}
         </View>
       ) : (
         <Button text="Login" nameClass={EButtonClass.DEF} size={EButtonSize.SM} isLink={true} linkUrl={EUrls.LOGIN} />
