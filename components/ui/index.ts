@@ -6,3 +6,4 @@ export { default as TitleLinkSection } from './TitleSectionLink';
 export { default as Socials } from './Socials';
 export { default as Select } from './Select';
 export { default as Input } from './Input';
+export { default as Textarea } from './Textarea';

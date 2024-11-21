@@ -1,35 +1,28 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
-import { TextInput, View, Text, TouchableOpacity } from 'react-native';
-import { PasswordHideIcon, PasswordShowIcon } from '../icons';
-import { EInputType } from '@/utils';
+import { TextInput, View, Text } from 'react-native';
 import { Controller } from 'react-hook-form';
 
-interface IInputProps {
-  type: EInputType;
+interface ITextareaProps {
   placeholder?: string;
-  icon?: React.ReactNode;
   isReadonly?: boolean;
   isRequired?: boolean;
   control: any;
   name: string;
   errors?: any;
+  isLabelSemicolon?: boolean;
 }
 
-const Input: React.FC<IInputProps> = ({
-  type,
+const Textarea: React.FC<ITextareaProps> = ({
   placeholder,
-  icon,
   control,
   name,
   errors,
   isReadonly = false,
   isRequired = false,
+  isLabelSemicolon = false,
 }) => {
-  const [showPassword, setShowPassword] = useState(false);
-
-  const togglePasswordVisibility = () => setShowPassword((prev) => !prev);
-
+  const [text, setText] = useState('');
   const hasError = Boolean(errors?.[name]);
 
   return (
@@ -41,33 +34,34 @@ const Input: React.FC<IInputProps> = ({
           ${hasError ? 'border-red' : 'border-gray-300'}
         `}
       >
-        {icon && <View className="mr-2">{icon}</View>}
-
         <Controller
           control={control}
           name={name}
           render={({ field: { onChange, onBlur, value } }) => (
             <TextInput
-              className={`text-base flex-1 text-black ${isReadonly && 'text-gray-400'}`}
-              placeholder={isRequired ? `${placeholder || ''}*` : placeholder}
-              secureTextEntry={type === 'password' && !showPassword}
+              placeholder={isRequired ? `${placeholder}*` : placeholder}
               editable={!isReadonly}
+              multiline
+              numberOfLines={10}
+              value={value || text}
               onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
+              onChangeText={(text) => {
+                setText(text);
+                onChange(text);
+              }}
+              className={`text-base flex-1 text-black ${isReadonly && 'text-gray-400'}`}
             />
           )}
         />
-
-        {type === 'password' && (
-          <TouchableOpacity onPress={togglePasswordVisibility} className="ml-2">
-            {showPassword ? <PasswordHideIcon /> : <PasswordShowIcon />}
-          </TouchableOpacity>
-        )}
       </View>
+
+      {isLabelSemicolon && (
+        <Text className="text-orange text-xs italic mt-2">For a separating point, use the symbol ;</Text>
+      )}
+
       {hasError && <Text className="text-red text-xs mt-1">{errors?.[name]?.message}</Text>}
     </View>
   );
 };
 
-export default Input;
+export default Textarea;
