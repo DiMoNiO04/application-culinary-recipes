@@ -16,3 +16,4 @@ export { default as RecipeContent } from './RecipeContent';
 export { default as NotFound } from './NotFound';
 export { default as SearchResults } from './SearchResults';
 export { default as ProfileContent } from './ProfileContent';
+export { default as FavoritesContent } from './FavoritesContent';
