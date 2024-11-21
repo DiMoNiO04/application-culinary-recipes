@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ApiEndpoints, EMethods, ROLE_KEY, TOKEN_KEY, TRY_AGAIN } from '@/utils';
-import { ILoginInputs } from '@/components/forms';
-import { ISignupInputs } from '@/components/forms/signUpForm/SignUpForm';
 import { IAuthCallbacks, IAuthResponse, IErrorResponse } from '../interfaces';
+import { ILoginInputs } from '@/components/forms/loginForm/LoginForm';
+import { ISignupInputs } from '@/components/forms/signUp/SignUp';
 
 const useAuth = ({ onSuccess }: IAuthCallbacks) => {
   const [isFail, setIsFail] = useState<boolean>(false);

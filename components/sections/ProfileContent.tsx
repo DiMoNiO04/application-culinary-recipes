@@ -3,7 +3,7 @@ import { View, Text, Alert, TouchableOpacity } from 'react-native';
 import { ProfileForm } from '@/components/forms';
 import { LogOutIcon } from '@/components/icons';
 import Button from '@/components/ui/Button';
-import { ConfirmAction } from '@/components/modals';
+import { ChangePasswordModal, ConfirmAction } from '@/components/modals';
 import { useDeleteAccount } from '@/api/hooks';
 import { useLogout } from '@/hooks';
 import { EButtonClass, EButtonSize, EButtonType, EUrls } from '@/utils';
@@ -74,11 +74,8 @@ const ProfileContent: React.FC = () => {
           <Button text={'Delete Account'} nameClass={EButtonClass.DEF} size={EButtonSize.SM} onPress={openDelAcc} />
         </View>
       </View>
-      {/* 
-      <ChangePasswordModal
-        isModalOpen={isModalChangePassOpen}
-        onClose={closeModalChangePass}
-      /> */}
+
+      <ChangePasswordModal isModalOpen={isModalChangePassOpen} onClose={closeModalChangePass} />
 
       <ConfirmAction
         isModalOpen={isModalDelAccOpen}
