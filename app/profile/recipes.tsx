@@ -6,7 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Footer, Header } from '@/components/layouts';
 import { RecipesUser } from '@/components/sections';
 
-const MyRecipesPage: React.FC = () => {
+const RecipesPage: React.FC = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -34,4 +34,4 @@ const MyRecipesPage: React.FC = () => {
   );
 };
 
-export default MyRecipesPage;
+export default RecipesPage;

@@ -23,7 +23,7 @@ const useLogout = () => {
 
       setIsAuth(false);
 
-      if (pathname === EUrls.PROFILE || pathname === EUrls.FAVORITES) {
+      if (pathname === EUrls.PROFILE || pathname === EUrls.PROFILE_FAVORITES) {
         router.replace(EUrls.MAIN);
       }
 

@@ -43,7 +43,7 @@ const UserProfile: React.FC = () => {
     } else if (role === ERoles.USER) {
       links.push(
         { title: 'Profile', url: EUrls.PROFILE },
-        { title: 'Favorites', url: EUrls.FAVORITES },
+        { title: 'Favorites', url: EUrls.PROFILE_FAVORITES },
         { title: 'Recipes', url: EUrls.PROFILE_RECIPES }
       );
     }
