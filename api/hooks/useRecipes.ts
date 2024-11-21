@@ -48,7 +48,7 @@ const useRecipes = (actionType: EActionType, recipeId?: number) => {
         throw new Error('Invalid action type');
       }
 
-      const result = await apiRequest(endpoint, method, recipeData);
+      const result = await apiRequest(endpoint, method, recipeData, token);
       setNotificationMsg(result.message);
       mutate([ApiEndpoints.GET_MY_RECIPES, token]);
       mutate(ApiEndpoints.GET_ALL_RECIPES);
