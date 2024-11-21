@@ -41,7 +41,11 @@ const UserProfile: React.FC = () => {
         { title: 'Moderator Recipes', url: EUrls.MODERATOR_RECIPES }
       );
     } else if (role === ERoles.USER) {
-      links.push({ title: 'Favorites', url: EUrls.FAVORITES }, { title: 'Recipes', url: EUrls.PROFILE_RECIPES });
+      links.push(
+        { title: 'Profile', url: EUrls.PROFILE },
+        { title: 'Favorites', url: EUrls.FAVORITES },
+        { title: 'Recipes', url: EUrls.PROFILE_RECIPES }
+      );
     }
 
     links.push({ title: 'Logout', action: toggleLogoutModal });

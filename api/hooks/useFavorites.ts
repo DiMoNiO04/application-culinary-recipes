@@ -36,7 +36,7 @@ const useFavorites = (actionType: EFavoriteActionType, id?: string) => {
         throw new Error('Invalid action type');
       }
 
-      const result = await apiRequest(endpoint, method, undefined);
+      const result = await apiRequest(endpoint, method, undefined, token);
       setNotificationMsg(result.message);
 
       mutate([ApiEndpoints.GET_FAVORITES, token]);

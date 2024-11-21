@@ -17,7 +17,7 @@ const useDeleteAccount = () => {
         throw new Error(TOKEN_NOT_FOUND);
       }
 
-      const result = await apiRequest(ApiEndpoints.DELETE_MY_ACC, EMethods.DELETE, undefined);
+      const result = await apiRequest(ApiEndpoints.DELETE_MY_ACC, EMethods.DELETE, undefined, token);
 
       await AsyncStorage.removeItem(TOKEN_KEY);
       setNotificationMsg(result.message);

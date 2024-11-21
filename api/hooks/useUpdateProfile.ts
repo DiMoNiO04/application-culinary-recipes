@@ -18,7 +18,7 @@ const useUpdateProfile = () => {
       }
 
       const body = { firstName, lastName };
-      const result = await apiRequest(ApiEndpoints.UPDATE_PERSONAL_DATA, EMethods.PATCH, body);
+      const result = await apiRequest(ApiEndpoints.UPDATE_PERSONAL_DATA, EMethods.PATCH, body, token);
 
       mutate([ApiEndpoints.GET_PERSONAL_DATA, token]);
 
