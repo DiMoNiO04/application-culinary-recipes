@@ -8,7 +8,7 @@ export enum EUrls {
   PROFILE_FAVORITES = '/profile/favorites/',
   PROFILE_RECIPES = '/profile/recipes/',
   CREATE_RECIPE = '/profile/createRecipe',
-  UPDATE_RECIPE = '/profile/recipes/update',
+  UPDATE_RECIPE = '/profile/editRecipe',
   SEARCH = '/search',
   RECIPES = '/recipes/',
   RECIPE = '/recipe',

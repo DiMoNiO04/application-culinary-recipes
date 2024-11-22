@@ -29,6 +29,7 @@ const RootLayout = () => {
       <Stack.Screen name="profile/index" options={{ headerShown: false }} />
       <Stack.Screen name="profile/recipes" options={{ headerShown: false }} />
       <Stack.Screen name="profile/createRecipe" options={{ headerShown: false }} />
+      <Stack.Screen name="profile/editRecipe/[id]" options={{ headerShown: false }} />
       <Stack.Screen name="profile/favorites" options={{ headerShown: false }} />
       <Stack.Screen name="login" options={{ headerShown: false }} />
       <Stack.Screen name="signUp" options={{ headerShown: false }} />

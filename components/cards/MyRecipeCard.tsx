@@ -26,7 +26,7 @@ const MyRecipeCard: React.FC<IRecipe> = ({ id, title, image, isPublished }) => {
   };
 
   const handleEditRecipe = () => {
-    router.push(EUrls.MAIN);
+    router.push(`${EUrls.UPDATE_RECIPE}/${id}`);
   };
 
   const handleRecipeLink = () => router.push(`${EUrls.RECIPES}/${id}` as RelativePathString);
