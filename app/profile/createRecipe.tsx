@@ -4,6 +4,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { Footer, Header } from '@/components/layouts';
+import RecipeForm from '@/components/forms/recipeForm/RecipeForm';
+import { EActionType } from '@/utils';
 
 const CreateRecipePage: React.FC = () => {
   const navigation = useNavigation();
@@ -19,7 +21,11 @@ const CreateRecipePage: React.FC = () => {
       <Header />
       <FlatList
         data={[1]}
-        renderItem={() => <View></View>}
+        renderItem={() => (
+          <View>
+            <RecipeForm actionType={EActionType.CREATE} />
+          </View>
+        )}
         keyExtractor={(item) => item.toString()}
         showsVerticalScrollIndicator={false}
         ListFooterComponent={<Footer />}

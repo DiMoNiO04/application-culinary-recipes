@@ -2,19 +2,8 @@ import { useState } from 'react';
 import { ApiEndpoints, EActionType, EMethods, TOKEN_KEY, TOKEN_NOT_FOUND, TRY_AGAIN } from '@/utils';
 import apiRequest from '../apiRequest';
 import { mutate } from 'swr';
-// import { IRecipeInputs } from '@/components/forms';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-interface IRecipeInputs {
-  title: string;
-  shortDescription: string;
-  cookingTime: number;
-  calories: number;
-  image: string;
-  ingredients: string;
-  instructions: string;
-  categoryId: number;
-}
+import { IRecipeInputs } from '@/components/forms/recipeForm/RecipeForm';
 
 const useRecipes = (actionType: EActionType, recipeId?: number) => {
   const [isError, setIsError] = useState<boolean>(false);
