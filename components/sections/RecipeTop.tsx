@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, Pressable, ScrollView } from 'react-native';
+import { View, Text, Image, Pressable } from 'react-native';
 import { CalendarIcon, LikeIcon, ProfileIcon } from '@/components/icons';
 import { Rating } from '@/components/elements';
 import { useFavorites, useGetFavorites } from '@/api/hooks';
 import { useAuthToken } from '@/hooks';
-import ERoles from '@/utils/enums/roles';
 import { EFavoriteActionType } from '@/utils';
 import { IAuthorRecipe } from '@/api';
 
@@ -54,7 +53,7 @@ const RecipeTop: React.FC<IRecipeTop> = ({
     <View className="px-4">
       <View className="flex-row justify-between items-start mb-2">
         <Text className="text-4xl mb-4 font-bold text-black">{title}</Text>
-        {token && role === ERoles.USER && isPublished && (
+        {token && isPublished && (
           <Pressable onPress={handleLikeClick} className="w-8 h-8 flex items-center justify-center">
             <LikeIcon color={isLiked ? '#ff642f' : '#8B8D95'} />
           </Pressable>

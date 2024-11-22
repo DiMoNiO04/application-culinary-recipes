@@ -3,7 +3,6 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { useFavorites, useGetFavorites } from '@/api/hooks';
 import { EFavoriteActionType, EUrls } from '@/utils';
 import { LikeIcon } from '@/components/icons';
-import ERoles from '@/utils/enums/roles';
 import { router, RelativePathString } from 'expo-router';
 import { useAuthToken } from '@/hooks';
 
@@ -41,7 +40,7 @@ const RecipeCard: React.FC<IRecipeCard> = ({ title, image, id }) => {
 
   return (
     <TouchableOpacity onPress={handlePress} className="flex-col items-center justify-start px-2 w-1/2 relative">
-      {token && role === ERoles.USER && (
+      {token && (
         <TouchableOpacity
           onPress={handleLikeClick}
           className={`absolute top-3 right-3 p-2 rounded-full bg-white z-10 ${isLiked ? 'bg-orange-500' : ''}`}

@@ -4,7 +4,6 @@ import { RelativePathString, useRouter } from 'expo-router';
 import { ConfirmAction } from '../modals';
 import { useAuthToken, useLogout } from '@/hooks';
 import { EButtonClass, EButtonSize, EUrls } from '@/utils';
-import ERoles from '@/utils/enums/roles';
 import Button from '../ui/Button';
 import { ProfileIcon } from '../icons';
 
@@ -31,24 +30,12 @@ const UserProfile: React.FC = () => {
   };
 
   const renderProfileLinks = () => {
-    const links = [];
-
-    if (role === ERoles.ADMIN) {
-      links.push({ title: 'Admin Users', url: EUrls.ADMIN_USERS }, { title: 'Admin Roles', url: EUrls.ADMIN_ROLES });
-    } else if (role === ERoles.MODERATOR) {
-      links.push(
-        { title: 'Moderator Categories', url: EUrls.MODERATOR_CATEGORIES },
-        { title: 'Moderator Recipes', url: EUrls.MODERATOR_RECIPES }
-      );
-    } else if (role === ERoles.USER) {
-      links.push(
-        { title: 'Profile', url: EUrls.PROFILE },
-        { title: 'Favorites', url: EUrls.PROFILE_FAVORITES },
-        { title: 'Recipes', url: EUrls.PROFILE_RECIPES }
-      );
-    }
-
-    links.push({ title: 'Logout', action: toggleLogoutModal });
+    const links = [
+      { title: 'Profile', url: EUrls.PROFILE },
+      { title: 'Favorites', url: EUrls.PROFILE_FAVORITES },
+      { title: 'Recipes', url: EUrls.PROFILE_RECIPES },
+      { title: 'Logout', action: toggleLogoutModal },
+    ];
 
     return links;
   };
