@@ -16,9 +16,19 @@ interface IRecipeTop {
   createdAt: string;
   author: IAuthorRecipe | undefined;
   category: string;
+  isPublished: boolean | undefined;
 }
 
-const RecipeTop: React.FC<IRecipeTop> = ({ id, title, category, author, createdAt, shortDescription, image }) => {
+const RecipeTop: React.FC<IRecipeTop> = ({
+  id,
+  title,
+  category,
+  author,
+  createdAt,
+  shortDescription,
+  image,
+  isPublished,
+}) => {
   const { token, role } = useAuthToken();
   const [isLiked, setIsLiked] = useState(false);
   const { data: favorites } = useGetFavorites();
@@ -44,7 +54,7 @@ const RecipeTop: React.FC<IRecipeTop> = ({ id, title, category, author, createdA
     <View className="px-4">
       <View className="flex-row justify-between items-start mb-2">
         <Text className="text-4xl mb-4 font-bold text-black">{title}</Text>
-        {token && role === ERoles.USER && (
+        {token && role === ERoles.USER && isPublished && (
           <Pressable onPress={handleLikeClick} className="w-8 h-8 flex items-center justify-center">
             <LikeIcon color={isLiked ? '#ff642f' : '#8B8D95'} />
           </Pressable>
@@ -74,6 +84,11 @@ const RecipeTop: React.FC<IRecipeTop> = ({ id, title, category, author, createdA
             </Text>
           </View>
         </View>
+        {!isPublished && (
+          <View className="w-full">
+            <Text className="text-orange italic">It is currently under moderation</Text>
+          </View>
+        )}
       </View>
 
       <Text className="text-lg font-interRegular text-grey mb-4">{shortDescription}</Text>

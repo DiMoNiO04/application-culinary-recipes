@@ -18,7 +18,7 @@ const RecipeContent: React.FC<IRecipeContent> = ({ recipe, isError, isLoading })
 
   return (
     <View className="my-16">
-      {recipe && recipe.isPublished ? (
+      {recipe ? (
         <>
           <RecipeTop
             id={recipe.id}
@@ -28,6 +28,7 @@ const RecipeContent: React.FC<IRecipeContent> = ({ recipe, isError, isLoading })
             author={recipe.author}
             category={recipe.category!.name}
             createdAt={recipe.createdAt}
+            isPublished={recipe.isPublished}
           />
           <View className="mt-8 gap-y-4">
             <InfoRecipe calories={recipe.calories} cookingTime={recipe.cookingTime} />

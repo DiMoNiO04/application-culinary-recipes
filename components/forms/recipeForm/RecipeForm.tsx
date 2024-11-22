@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { View, Alert, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Alert, Text, Image } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ErrorFetch, Input, Loading, Textarea } from '@/components/ui';
 import Button from '@/components/ui/Button';
-import { EActionType, EButtonClass, EButtonSize, EInputType } from '@/utils';
+import { EActionType, EButtonClass, EButtonSize, EInputType, EUrls } from '@/utils';
 import { useGetRecipe, useRecipes, useGetCategories } from '@/api/hooks';
 import schemaRecipe from './schema';
 import { Picker } from '@react-native-picker/picker';
 import convertImageBase64 from '@/utils/functions/convertImageBase64';
+import { RelativePathString, router } from 'expo-router';
 
 export interface IRecipeInputs {
   title: string;
@@ -44,7 +45,7 @@ const RecipeForm: React.FC<IRecipeForm> = ({ actionType, id }) => {
     defaultValues: recipeData || {},
   });
 
-  const { submitRecipe, isError: isSubmitError } = useRecipes(actionType, Number(id));
+  const { submitRecipe, isError: isSubmitError, notificationMsg } = useRecipes(actionType, Number(id));
   const [filePreview, setFilePreview] = useState<string | null>(null);
 
   useEffect(() => {
@@ -83,7 +84,14 @@ const RecipeForm: React.FC<IRecipeForm> = ({ actionType, id }) => {
   };
 
   const handleFormSubmit = async (data: IRecipeInputs) => {
-    submitRecipe({ ...data, image: data.image || '' });
+    submitRecipe({ ...data, image: data.image || '' })
+      .then(() => {
+        Alert.alert('Success', notificationMsg || 'Recipe saved successfully');
+        router.push(EUrls.PROFILE_RECIPES as unknown as RelativePathString);
+      })
+      .catch((error) => {
+        Alert.alert('Error', error.message || 'Failed to save the recipe');
+      });
   };
 
   if (isEditMode && isRecipeLoading) return <Loading />;
@@ -91,7 +99,7 @@ const RecipeForm: React.FC<IRecipeForm> = ({ actionType, id }) => {
 
   return (
     <View className="flex flex-col gap-y-6">
-      <Text>* All fields required</Text>
+      <Text className="text-orange italic">* All fields required</Text>
 
       <Input
         type={EInputType.TEXT}
@@ -124,15 +132,23 @@ const RecipeForm: React.FC<IRecipeForm> = ({ actionType, id }) => {
         control={control}
         name="ingredients"
         errors={errors}
+        isLabelSemicolon={true}
       />
-      <Textarea placeholder="Instructions" isRequired control={control} name="instructions" errors={errors} />
+      <Textarea
+        placeholder="Instructions"
+        isRequired
+        control={control}
+        name="instructions"
+        errors={errors}
+        isLabelSemicolon={true}
+      />
 
       <View>
-        <Text>Select Category</Text>
         {isCategoriesLoading ? (
           <Text>Loading categories...</Text>
         ) : (
           <Picker
+            className="border border-greyLight"
             selectedValue=""
             onValueChange={(value) => setValue('categoryId', Number(value), { shouldValidate: true })}
           >
@@ -140,13 +156,11 @@ const RecipeForm: React.FC<IRecipeForm> = ({ actionType, id }) => {
             {categories?.map((category) => <Picker.Item key={category.id} label={category.name} value={category.id} />)}
           </Picker>
         )}
-        {errors.categoryId && <Text className="text-red-500">{errors.categoryId.message}</Text>}
+        {errors.categoryId && <Text className="text-red">{errors.categoryId.message}</Text>}
       </View>
 
       <View>
-        <TouchableOpacity className="bg-blue-500 p-4 rounded-lg" onPress={handleImagePick}>
-          <Text className="text-red text-center">Select Image</Text>
-        </TouchableOpacity>
+        <Button text="Upload Image" nameClass={EButtonClass.DEF} size={EButtonSize.LG} onPress={handleImagePick} />
         {filePreview && (
           <View className="mt-4">
             <Text>Preview:</Text>
